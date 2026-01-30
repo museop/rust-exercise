@@ -1,9 +1,10 @@
-use std::sync::{mpsc, Arc, Mutex};
+use std::sync::{Arc, Mutex, mpsc};
 use std::thread;
 use std::time::Duration;
 
 fn main() {
     // 다중 생산자, 다중 소비자를 위한 채널을 생성합니다.
+    // mpsc는 다중 생산자, 단일 소비자 채널이지만,
     let (tx, rx) = mpsc::channel();
 
     // 수신자(rx)를 Arc<Mutex<T>>로 감싸서 여러 소비자 스레드가 공유할 수 있도록 합니다.
@@ -60,9 +61,9 @@ fn main() {
         producer_handles.push(handle);
     }
 
+    // 채널은 모든 송신자(tx)가 드롭되어야 닫힙니다.
     // 메인 스레드의 송신자를 드롭(drop)합니다.
     // 이렇게 해야 수신자(rx)가 모든 메시지를 받은 후 대기를 멈출 수 있습니다.
-    // 채널은 모든 송신자가 드롭되어야 닫힙니다.
     drop(tx);
 
     // 모든 생산자 스레드가 끝날 때까지 기다립니다.
