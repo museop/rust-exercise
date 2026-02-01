@@ -1,0 +1,44 @@
+[package]
+name = "macro-exercise"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "macro-phase1"
+path = "src/phase1.rs"
+
+[[bin]]
+name = "macro-phase2"
+path = "src/phase2.rs"
+
+[[bin]]
+name = "macro-phase3"
+path = "src/phase3.rs"
+
+[[bin]]
+name = "macro-phase4"
+path = "src/phase4.rs"
+
+[[bin]]
+name = "macro-phase5"
+path = "src/phase5.rs"
+
+[[bin]]
+name = "macro-phase6"
+path = "src/phase6.rs"
+
+[[bin]]
+name = "macro-phase7"
+path = "src/phase7.rs"
+
+[[bin]]
+name = "macro-phase8"
+path = "src/phase8.rs"
+
+[dependencies]
+hello_macro = { path = "hello_macro" }
+my_macro_attribute = { path = "my_macro_attribute" }
+my_macro_derive = { path = "my_macro_derive" }
+my_macro_derive_attributes = { path = "my_macro_derive_attributes" }
+my_macro_derive_option_fields = { path = "my_macro_derive_option_fields"}
+my_macro_derive_vec_fields = { path = "my_macro_derive_vec_fields"}

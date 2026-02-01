@@ -1,0 +1,11 @@
+[package]
+name = "hello_macro"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+proc-macro = true  # <--- 필수 설정!
+
+[dependencies]
+syn = { version = "1.0", features = ["full"] } # 파싱용
+quote = "1.0"                                  # 코드 생성용
